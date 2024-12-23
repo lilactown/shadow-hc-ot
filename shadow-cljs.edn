@@ -1,0 +1,15 @@
+{:source-paths ["src"]
+ :dev-http {8000 "public"}
+ :builds {:app {:modules {:main {:entries [town.lilac.ot-example]}}
+                :output-dir "public/js"
+                :asset-path "js"
+                :target :browser
+                :compiler-options {:language-in :ecmascript-next
+                                   :output-feature-set :es2018
+                                   :warnings-as-errors {:ignore #{wet.*
+                                                                  ;; the below shadow vars indroduced in cljs 1.11
+                                                                  thi.ng.*
+                                                                  taoensso.encore}}
+                                   :externs ["datascript/externs.js"]
+                                   :source-map true
+                                   :output-wrapper true}}}}
